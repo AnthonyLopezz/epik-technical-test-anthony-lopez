@@ -1,0 +1,25 @@
+@host = http://localhost:5080
+
+### Create
+POST {{host}}/api/personas
+Content-Type: application/json
+
+{ "identificacion": "2001", "nombres": "Sofía", "apellidos": "Ramírez", "edad": 30, "genero": "Femenino" }
+
+### Get by id
+GET {{host}}/api/personas/2001
+
+### List everyone (paged)
+GET {{host}}/api/personas?page=1&pageSize=10
+
+### List women (VW_Mujeres view, paged)
+GET {{host}}/api/personas/mujeres?page=1&pageSize=10
+
+### Update age
+PATCH {{host}}/api/personas/2001/edad
+Content-Type: application/json
+
+{ "edad": 31 }
+
+### Delete
+DELETE {{host}}/api/personas/2001

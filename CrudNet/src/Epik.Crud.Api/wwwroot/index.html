@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Personas · Epik</title>
+  <link rel="stylesheet" href="vendor/notyf.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <main>
+    <header class="top">
+      <div>
+        <h1>Registro de personas</h1>
+        <p class="muted">Consulta, registra y actualiza personas.</p>
+      </div>
+      <a class="api-link" href="/swagger">API · Swagger</a>
+    </header>
+
+    <div class="toolbar">
+      <form id="search" class="search" role="search">
+        <label class="sr-only" for="search-id">Buscar por identificación</label>
+        <input id="search-id" name="id" placeholder="Buscar por identificación" maxlength="20" autocomplete="off"
+          inputmode="numeric" data-format="digits">
+        <button class="btn">Buscar</button>
+      </form>
+      <label class="filter">Mostrar
+        <select id="filter">
+          <option value="">Todas</option>
+          <option value="/mujeres">Solo mujeres</option>
+        </select>
+      </label>
+      <button type="button" class="btn primary" id="open-create">Nueva persona</button>
+    </div>
+
+    <p class="summary" id="summary">Cargando…</p>
+
+    <p id="search-banner" class="summary" hidden>
+      Resultado de la búsqueda. <button type="button" class="link" id="clear-search">Ver todas</button>
+    </p>
+
+    <div class="table-box">
+      <table>
+        <thead>
+          <tr>
+            <th>Identificación</th>
+            <th>Nombre</th>
+            <th class="num">Edad</th>
+            <th>Género</th>
+            <th><span class="sr-only">Acciones</span></th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+
+    <nav class="pager" id="pager" aria-label="Paginación">
+      <span id="page-info" aria-live="polite"></span>
+      <button type="button" class="btn" id="prev">Anterior</button>
+      <button type="button" class="btn" id="next">Siguiente</button>
+    </nav>
+  </main>
+
+  <dialog id="create-dialog" aria-labelledby="create-title">
+    <form id="create">
+      <h2 id="create-title">Nueva persona</h2>
+      <label class="field"><span>Identificación</span>
+        <input name="identificacion" required maxlength="20" autocomplete="off" inputmode="numeric"
+          data-format="digits">
+      </label>
+      <label class="field"><span>Nombres</span>
+        <input name="nombres" required maxlength="100" autocomplete="given-name" data-format="letters">
+      </label>
+      <label class="field"><span>Apellidos</span>
+        <input name="apellidos" required maxlength="100" autocomplete="family-name" data-format="letters">
+      </label>
+      <div class="row">
+        <label class="field"><span>Edad</span>
+          <input name="edad" type="number" required min="0" max="150" step="1">
+        </label>
+        <label class="field"><span>Género</span>
+          <select name="genero" required>
+            <option value="">Selecciona</option>
+            <option>Femenino</option>
+            <option>Masculino</option>
+          </select>
+        </label>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn" data-close>Cancelar</button>
+        <button class="btn primary">Guardar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="age-dialog" aria-labelledby="age-title">
+    <form id="age">
+      <h2 id="age-title">Editar edad</h2>
+      <p class="muted" id="age-person"></p>
+      <label class="field"><span>Edad</span>
+        <input name="edad" type="number" required min="0" max="150" step="1">
+      </label>
+      <div class="actions">
+        <button type="button" class="btn" data-close>Cancelar</button>
+        <button class="btn primary">Guardar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="delete-dialog" aria-labelledby="delete-title">
+    <form id="delete">
+      <h2 id="delete-title">Eliminar persona</h2>
+      <p id="delete-text"></p>
+      <div class="actions">
+        <button type="button" class="btn" data-close>Cancelar</button>
+        <button class="btn danger">Eliminar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="vendor/notyf.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
