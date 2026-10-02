@@ -3,6 +3,19 @@
 API REST hecha con ASP.NET Core (.NET 10) y SQLite para la tabla `Persona`. Incluye una interfaz web
 sencilla que se sirve desde la misma API para poder probar facilmente. El listado de mujeres se consulta desde la vista `VW_Mujeres`.
 
+## Accesos al proyecto
+
+- [Carpeta del proyecto en Google Drive](https://drive.google.com/drive/folders/1D08E7IxoKloeBodNoTK_wB0dhF4zo65l?usp=sharing)
+- [Repositorio en GitHub](https://github.com/AnthonyLopezz/epik-technical-test-anthony-lopez)
+
+### Descargar el proyecto desde GitHub
+
+1. Abre el [repositorio en GitHub](https://github.com/AnthonyLopezz/epik-technical-test-anthony-lopez).
+2. Haz clic en el botón verde **Code**.
+3. Selecciona **Download ZIP**.
+4. Cuando termine la descarga, extrae el archivo ZIP en tu computadora.
+5. Abre una terminal en la carpeta extraída y sigue los pasos de [Cómo ejecutarlo](#cómo-ejecutarlo).
+
 ## Requisitos
 
 Solo se necesita el [SDK de .NET 10](https://dotnet.microsoft.com/download/dotnet/10.0):

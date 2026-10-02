@@ -9,10 +9,5 @@ obj/
 .idea/
 *.user
 
-# Base local que crea la API al ejecutarse (la entregable está en BaseDeDatos/)
-CrudNet/src/Epik.Crud.Api/epik.db
 *.db-shm
 *.db-wal
-
-# Resultados de tests
-TestResults/
